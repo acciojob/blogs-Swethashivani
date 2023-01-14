@@ -49,7 +49,7 @@ public class ImageService {
         if (screenDimensions.split("X").length == 2 || Objects.nonNull(image)) {
            Integer screenArea = Integer.parseInt(screenDimensions.split("X")[0]) * Integer.parseInt(screenDimensions.split("X")[1]);
            Integer imageArea = Integer.parseInt(image.getDimensions().split("X")[0]) * Integer.parseInt(image.getDimensions().split("X")[1]);
-           return imageArea / screenArea;
+           return screenArea / imageArea;
         }
         return 0;
     }
