@@ -57,7 +57,7 @@ public class BlogService {
         Image image = new Image(description,dimensions);
         Blog blog = blogRepository1.findById(blogId).get();
         image.setBlog(blog);
-        image = imageRepository.save(image);
+        imageRepository.save(image);
         List<Image> imageList= blog.getImageList();
         if (Objects.isNull(imageList)) {
             imageList = new ArrayList<>();
