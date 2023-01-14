@@ -55,12 +55,12 @@ public class BlogService {
         image.setDimensions(dimensions);
         image.setDescription(description);
         Blog blog = blogRepository1.findById(blogId).get();
+        image.setBlog(blog);
+        imageRepository.save(image);
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
-        image.setBlog(blog);
         blog.setImageList(imageList);
         blogRepository1.save(blog);
-        imageRepository.save(image);
     }
 
     public void deleteBlog(int blogId) {

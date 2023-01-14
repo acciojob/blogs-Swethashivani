@@ -63,7 +63,7 @@ public class Blog {
     public Blog() {
     }
 
-    @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Image.class, cascade = CascadeType.ALL)
     private List<Image> imageList;
 
     public List<Image> getImageList() {
