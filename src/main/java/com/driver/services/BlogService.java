@@ -8,7 +8,10 @@ import com.driver.repositories.ImageRepository;
 import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class BlogService {
@@ -54,11 +57,14 @@ public class BlogService {
         Image image = new Image(description,dimensions);
         Blog blog = blogRepository1.findById(blogId).get();
         image.setBlog(blog);
+        image = imageRepository.save(image);
         List<Image> imageList= blog.getImageList();
+        if (Objects.isNull(imageList)) {
+            imageList = new ArrayList<>();
+        }
         imageList.add(image);
         blog.setImageList(imageList);
         blogRepository1.save(blog);
-        imageRepository.save(image);
     }
 
     public void deleteBlog(int blogId) {
