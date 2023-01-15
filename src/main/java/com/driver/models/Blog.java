@@ -55,9 +55,10 @@ public class Blog {
         this.user = user;
     }
 
-    public Blog(String title, String content) {
+    public Blog(String title, String content, Date pubDate) {
         this.title = title;
         this.content = content;
+        this.pubDate = pubDate;
     }
 
     public Blog() {
